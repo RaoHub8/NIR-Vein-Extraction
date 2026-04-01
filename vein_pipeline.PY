@@ -3,9 +3,6 @@ NIR Vein Extraction Pipeline
 ==============================
 Pipeline engineered for domain shift resilience using local contrast enhancement, 
 illumination flattening (Black-Hat), and optimized morphological filtering.
-
-Evaluation against the original dataset masks has been omitted as the 
-ground truth files were found to be non-binary and incomplete.
 """
 
 import cv2
@@ -91,7 +88,8 @@ def run_pipeline(image_path, show=True):
     print(f"\nProcessing: {image_path}")
     original = load_image(image_path)
 
-    # 1. Arm Mask: I mask the arm and heavily erode the mask (45x45) to make sure that the pipeline ignores dark boundary shadows and any physical artifacts (like tape).    _, arm_mask_raw = cv2.threshold(original, 15, 255, cv2.THRESH_BINARY)
+    # 1. Arm Mask: I mask the arm and heavily erode the mask (45x45) to make sure that the pipeline ignores dark boundary shadows and any physical artifacts (like tape).    
+    _, arm_mask_raw = cv2.threshold(original, 15, 255, cv2.THRESH_BINARY)
     kernel_arm = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (45, 45))
     arm_mask = cv2.erode(arm_mask_raw, kernel_arm, iterations=1)
 

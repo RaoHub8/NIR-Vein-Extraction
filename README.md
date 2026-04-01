@@ -31,3 +31,6 @@ Run the pipeline:
 Bash
 python vein_pipeline.py
 Note: Toggle RUN_SINGLE_IMAGE = False in the config block to batch process a full dataset.
+
+## Documentation
+For a complete breakdown of the algorithmic design choices, physical optics justification, and the data audit of the ground truth masks, please refer to the attached NIR_Vein_Extraction_Report.pdf.

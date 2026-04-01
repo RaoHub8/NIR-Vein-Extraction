@@ -26,3 +26,8 @@ The pipeline successfully extracts primary vascular networks while completely ig
 Install the dependencies:
 ```bash
 pip install -r requirements.txt
+Run the pipeline:
+
+Bash
+python vein_pipeline.py
+Note: Toggle RUN_SINGLE_IMAGE = False in the config block to batch process a full dataset.
